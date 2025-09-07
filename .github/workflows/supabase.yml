@@ -1,7 +1,7 @@
-name: ping
+name: ping supabase
 on:
   schedule:
-    - cron: "*/10 * * * *"
+    - cron: "0 0 * * *"
   workflow_dispatch:
 
 jobs:
@@ -22,9 +22,3 @@ jobs:
           GO_CHAT_SUPABASE_API_URL: ${{ secrets.GO_CHAT_SUPABASE_API_URL }}
           GO_CHAT_SUPABASE_ANON_KEY: ${{ secrets.GO_CHAT_SUPABASE_ANON_KEY }}
         run: npx tsx go-chat/supabase_keepalive.ts
-
-      - name: ping go-chat backend
-        run: curl -f https://go-chat-56oc.onrender.com/api/healthcheck
-
-      - name: ping husky-connect backend
-        run: curl -f https://husky-connect-backend.onrender.com/healthcheck

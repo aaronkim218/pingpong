@@ -1,0 +1,15 @@
+name: ping render
+on:
+  schedule:
+    - cron: "*/10 * * * *"
+  workflow_dispatch:
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: ping go-chat backend on render
+        run: curl -f https://go-chat-56oc.onrender.com/api/healthcheck
+
+      - name: ping husky-connect backend on render
+        run: curl -f https://husky-connect-backend.onrender.com/healthcheck
