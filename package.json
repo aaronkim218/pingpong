@@ -18,7 +18,8 @@
   },
   "homepage": "https://github.com/aaronkim218/pingpong#readme",
   "devDependencies": {
-    "@types/node": "^24.3.1"
+    "@types/node": "^24.3.1",
+    "tsx": "^4.20.5"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.57.2"

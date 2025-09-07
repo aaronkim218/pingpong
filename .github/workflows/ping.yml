@@ -19,8 +19,8 @@ jobs:
 
       - name: run go-chat supabase keepalive script
         env:
-          SUPABASE_URL: ${{ secrets.GO_CHAT_SUPABASE_API_URL }}
-          SUPABASE_ANON_KEY: ${{ secrets.GO_CHAT_SUPABASE_ANON_KEY }}
+          GO_CHAT_SUPABASE_API_URL: ${{ secrets.GO_CHAT_SUPABASE_API_URL }}
+          GO_CHAT_SUPABASE_ANON_KEY: ${{ secrets.GO_CHAT_SUPABASE_ANON_KEY }}
         run: npx tsx go-chat/supabase_keepalive.ts
 
       - name: ping go-chat backend
