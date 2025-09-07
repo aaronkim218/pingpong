@@ -25,3 +25,6 @@ jobs:
 
       - name: ping go-chat backend
         run: curl -f https://go-chat-56oc.onrender.com/api/healthcheck
+
+      - name: ping husky-connect backend
+        run: curl -f https://husky-connect-backend.onrender.com/healthcheck
