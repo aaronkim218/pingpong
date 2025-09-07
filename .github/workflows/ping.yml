@@ -1,0 +1,12 @@
+name: ping
+on:
+  schedule:
+    - cron: "*/15 * * * *"
+  workflow_dispatch:
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: ping go-chat backend
+        run: curl -f https://go-chat-56oc.onrender.com/api/healthcheck
