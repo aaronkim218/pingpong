@@ -10,15 +10,18 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - uses: pnpm/action-setup@v4
+
       - uses: actions/setup-node@v4
         with:
-          node-version: 23
+          node-version: 24
+          cache: pnpm
 
       - name: install dependencies
-        run: npm ci
+        run: pnpm install --frozen-lockfile
 
       - name: run go-chat supabase keepalive script
         env:
           GO_CHAT_SUPABASE_API_URL: ${{ secrets.GO_CHAT_SUPABASE_API_URL }}
           GO_CHAT_SUPABASE_ANON_KEY: ${{ secrets.GO_CHAT_SUPABASE_ANON_KEY }}
-        run: npx tsx go-chat/supabase_keepalive.ts
+        run: pnpm exec tsx go-chat/supabase_keepalive.ts
